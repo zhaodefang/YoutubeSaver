@@ -211,7 +211,7 @@ namespace WindowsFormsApp1
             if (url.Contains("pornhub")) return true;
             return false;
         }
-        //v1.1 add
+
         private void AddUrl(string url)
         {
 
