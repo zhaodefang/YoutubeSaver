@@ -201,6 +201,7 @@ namespace WindowsFormsApp1
 
             AddUrl(str);
         }
+        //v1.1 add  
         private bool IsUrlValue(string url)
         {
             if (url.Length == 0) return false;
@@ -210,6 +211,7 @@ namespace WindowsFormsApp1
             if (url.Contains("pornhub")) return true;
             return false;
         }
+        //v1.1 add
         private void AddUrl(string url)
         {
 
