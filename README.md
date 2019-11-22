@@ -1,2 +1,4 @@
 # YoutubeSaver
-YoutubeSaver youtube-dl
+need:
+youtube-dl
+ffmpeg
