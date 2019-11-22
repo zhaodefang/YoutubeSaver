@@ -201,7 +201,7 @@ namespace WindowsFormsApp1
 
             AddUrl(str);
         }
-        //v1.1 add  
+        //v1.1 add  仅通过特定的网站名
         private bool IsUrlValue(string url)
         {
             if (url.Length == 0) return false;
