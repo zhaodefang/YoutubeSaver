@@ -169,9 +169,9 @@ namespace WindowsFormsApp1
                         //显示剪贴板中的文本信息
                         if (Clipboard.ContainsText())
                         {
-                            string ss = Clipboard.GetText();
-                            if (!ss.Contains("http")) return;
-                            textBox1.Text = ss;
+                            string url = Clipboard.GetText();
+                            if(!IsUrlValue(url)) return;
+                            textBox1.Text = url;
                           //  MessageBox.Show("ddd");
                         }
                         //显示剪贴板中的图片信息
