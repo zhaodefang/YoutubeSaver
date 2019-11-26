@@ -142,6 +142,16 @@ namespace WindowsFormsApp1
             }
             sr.Close();
         }
+        //v1.11 add  仅通过特定的网站名
+        private bool IsUrlValue(string url)
+        {
+            if (url.Length == 0) return false;
+            if (!url.Contains("http")) return false;
+            if (url.Contains("youtube")) return true;
+            if (url.Contains("chaturbate")) return true;
+            if (url.Contains("pornhub")) return true;
+            return false;
+        }
         #region Message Process
         //Override WndProc to get messages...
         protected override void WndProc(ref Message m)
@@ -192,6 +202,7 @@ namespace WindowsFormsApp1
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             string url = textBox1.Text.ToString();
+            if (!IsUrlValue(url)) return;
             if (url.Length == 0) return;
             if (!url.Contains("http")) return;
             string str = "youtube-dl -f best " + url;
@@ -201,22 +212,11 @@ namespace WindowsFormsApp1
 
             AddUrl(str);
         }
-        //v1.1 add  仅通过特定的网站名
-        private bool IsUrlValue(string url)
-        {
-            if (url.Length == 0) return false;
-            if (!url.Contains("http")) return false;
-            if (url.Contains("youtube")) return true;
-            if (url.Contains("chaturbate")) return true;
-            if (url.Contains("pornhub")) return true;
-            return false;
-        }
+
 
         private void AddUrl(string url)
         {
-
-            if (!IsUrlValue(url)) return;
-
+  
             if (!listBox1.Items.Contains(url))
             {
                 listBox1.Items.Add(url);
