@@ -146,7 +146,7 @@ namespace WindowsFormsApp1
         private bool IsUrlValue(string url)
         {
             if (url.Length == 0) return false;
-            if (!url.Contains("http")) return false;
+            if(!url.StartsWith("http")) return false;
             if (url.Contains("youtube")) return true;
             if (url.Contains("chaturbate")) return true;
             if (url.Contains("pornhub")) return true;
@@ -202,9 +202,7 @@ namespace WindowsFormsApp1
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             string url = textBox1.Text.ToString();
-            if (!IsUrlValue(url)) return;
-            if (url.Length == 0) return;
-            if (!url.Contains("http")) return;
+            if(!IsUrlValue(url)) return;
             string str = "youtube-dl -f best " + url;
 
             if (checkBox1.Checked) str += " --proxy 127.0.0.1:1080";
