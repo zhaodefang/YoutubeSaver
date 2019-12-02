@@ -203,7 +203,11 @@ namespace WindowsFormsApp1
         {
             string url = textBox1.Text.ToString();
             if(!IsUrlValue(url)) return;
-            string str = "youtube-dl -f best " + url;
+            string str;
+            if (url.Contains("pornhub"))
+                str = "PHDownloader.exe -URL=" + url;
+            else
+                str = "youtube-dl -f best " + url;
 
             if (checkBox1.Checked) str += " --proxy 127.0.0.1:1080";
             textBox2.Text = str;
